@@ -335,6 +335,12 @@ return [
             'icon' => 'fas fa-fw fa-layer-group',
             'classes' => 'bg-red text-white',
         ],
+        [
+            'text' => 'Materias',
+            'url' => 'admin/materias',
+            'icon' => 'fas fa-fw fa-book',
+            'classes' => 'bg-red text-white',
+        ],
 
         [
             'text' => 'profile',
