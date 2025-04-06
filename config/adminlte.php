@@ -342,13 +342,20 @@ return [
             'classes' => 'bg-red text-white',
         ],
 
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
         
-        ['header' => 'labels'],
+        ['header' => 'Datos'],
+        [
+            'text' => 'Roles',
+            'icon' => 'fas fa-fw fa-user-check',
+            'classes' => 'bg-blue text-white',
+            'submenu' => [
+            'tex' => 'Listado de roles',
+            'url' => 'admin/materias',
+            
+            'classes' => 'bg-red text-white',
+            ],
+            
+        ],
        
     ],
 
