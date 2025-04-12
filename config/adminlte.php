@@ -347,14 +347,21 @@ return [
         [
             'text' => 'Roles',
             'icon' => 'fas fa-fw fa-user-check',
-            'classes' => 'bg-blue text-white',
-            'submenu' => [
-            'tex' => 'Listado de roles',
-            'url' => 'admin/materias',
-            
             'classes' => 'bg-red text-white',
-            ],
+            'submenu' => [
+                [
+                   'text' => 'Listado de rolas',
+                'url' => 'admin/roles',
+            'classes' => 'bg-white text-white', 
+                ]
+            ]
             
+        ],
+        [
+            'text' => 'Administrativos',
+            'url' => 'admin/administrativos',
+            'icon' => 'fas fa-fw fa-users-cog',
+            'classes' => 'bg-red text-white',
         ],
        
     ],

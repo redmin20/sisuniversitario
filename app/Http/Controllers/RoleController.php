@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -11,7 +12,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -19,7 +21,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.roles.create');
     }
 
     /**
@@ -27,7 +29,16 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required|unique:roles',
+        ]);
+        $rol = new Role();
+        $rol->name = $request->name;
+        $rol->save();
+
+        return redirect()->route('admin.roles.index')
+        ->with('mensaje', 'Roles actualizado correctamente')
+             ->with('icono', 'success');
     }
 
     /**
@@ -43,22 +54,38 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $role = Role::find($id);
+        return view('admin.roles.edit', compact('role'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:roles,name,'.$id,
+        ]);
+
+        $rol = Role::find($id);
+        $rol->name= $request->name;
+        $rol->save();
+
+        return redirect()->route('admin.roles.index')
+            ->with('mensaje', 'Rol actualizado correctamente')
+            ->with('icono', 'success');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Role::destroy($id);
+        
+
+        return redirect()->route('admin.roles.index')
+            ->with('mensaje', 'rol eliminado correctamente')
+            ->with('icono', 'success');
     }
 }

@@ -73,13 +73,22 @@ Route::delete('/admin/materias/{id}', [App\Http\Controllers\MateriaController::c
 
 
 //rutas para roles
-Route::get('/admin/roles', [App\Http\Controllers\RoleController::class, 'index'])->name('admin.materias.index')->middleware('auth');
-Route::get('/admin/roles/create', [App\Http\Controllers\RoleController::class, 'create'])->name('admin.materias.create')->middleware('auth');
-Route::post('/admin/roles/create', [App\Http\Controllers\RoleController::class, 'store'])->name('admin.materias.store')->middleware('auth');
-Route::get('/admin/roles/{id}/edit', [App\Http\Controllers\RoleController::class, 'edit'])->name('admin.materias.edit')->middleware('auth');
-Route::put('/admin/roles/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('admin.materias.update')->middleware('auth');
-Route::delete('/admin/roles/{id}', [App\Http\Controllers\RoleController::class, 'destroy'])->name('admin.materias.destroy')->middleware('auth');
+Route::get('/admin/roles', [App\Http\Controllers\RoleController::class, 'index'])->name('admin.roles.index')->middleware('auth');
+Route::get('/admin/roles/create', [App\Http\Controllers\RoleController::class, 'create'])->name('admin.roles.create')->middleware('auth');
+Route::post('/admin/roles/create', [App\Http\Controllers\RoleController::class, 'store'])->name('admin.roles.store')->middleware('auth');
+Route::get('/admin/roles/{id}/edit', [App\Http\Controllers\RoleController::class, 'edit'])->name('admin.roles.edit')->middleware('auth');
+Route::put('/admin/roles/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('admin.roles.update')->middleware('auth');
+Route::delete('/admin/roles/{id}', [App\Http\Controllers\RoleController::class, 'destroy'])->name('admin.roles.destroy')->middleware('auth');
 
+
+//rutas para administrativos
+Route::get('/admin/administrativos', [App\Http\Controllers\AdministrativosController::class, 'index'])->name('admin.administrativos.index')->middleware('auth');
+Route::get('/admin/administrativos/create', [App\Http\Controllers\AdministrativosController::class, 'create'])->name('admin.administrativos.create')->middleware('auth');
+Route::post('/admin/administrativos/create', [App\Http\Controllers\AdministrativosController::class, 'store'])->name('admin.administrativos.store')->middleware('auth');
+Route::get('/admin/administrativos/{id}', [App\Http\Controllers\AdministrativosController::class, 'show'])->name('admin.administrativos.edit')->middleware('auth');
+Route::get('/admin/administrativos/{id}/edit', [App\Http\Controllers\AdministrativosController::class, 'edit'])->name('admin.administrativos.edit')->middleware('auth');
+Route::put('/admin/administrativos/{id}', [App\Http\Controllers\AdministrativosController::class, 'update'])->name('admin.administrativos.update')->middleware('auth');
+Route::delete('/admin/administrativos/{id}', [App\Http\Controllers\AdministrativosController::class, 'destroy'])->name('admin.administrativos.destroy')->middleware('auth');
 
 
 
